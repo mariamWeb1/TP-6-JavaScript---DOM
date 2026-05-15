@@ -1,0 +1,51 @@
+// 1. Récupérer les éléments du DOM
+let formulaire = document.getElementById("formulaire");
+let tacheInput = document.getElementById("tacheInput");
+let listeTaches = document.getElementById("listeTaches");
+
+// 2. Ajouter un événement lors de la soumission du formulaire
+formulaire.addEventListener("submit", function(event) {
+    // Empêcher le rechargement automatique de la page
+    event.preventDefault();
+
+    // Récupérer le texte saisi
+    let texteTache = tacheInput.value;
+
+    // 3. Vérifier que le champ n'est pas vide
+    if (texteTache === "") {
+        alert("Veuillez entrer une tâche.");
+        return;
+    }
+
+    // 4. Créer un élément de liste (li)
+    let li = document.createElement("li");
+    li.textContent = texteTache + " ";
+
+    // 5. Créer le bouton "Accomplie" (Done)
+    let boutonAccomplie = document.createElement("button");
+    boutonAccomplie.textContent = "Accomplie";
+    
+    // Ajouter l'événement pour marquer la tâche comme accomplie
+    boutonAccomplie.addEventListener("click", function() {
+        li.classList.toggle("accomplie");
+    });
+
+    // 6. Créer le bouton "Supprimer" (Delete)
+    let boutonSupprimer = document.createElement("button");
+    boutonSupprimer.textContent = "Supprimer";
+    
+    // Ajouter l'événement pour supprimer la tâche
+    boutonSupprimer.addEventListener("click", function() {
+        li.remove();
+    });
+
+    // 7. Ajouter les boutons à l'élément li
+    li.appendChild(boutonAccomplie);
+    li.appendChild(boutonSupprimer);
+
+    // 8. Ajouter la tâche complète à la liste (ul/ol)
+    listeTaches.appendChild(li);
+
+    // 9. Vider le champ de saisie après l'ajout
+    tacheInput.value = "";
+});
