@@ -1,0 +1,32 @@
+// 1. Créez une div et un paragraphe
+// Créer une nouvelle div dans le document
+let maDiv = document.createElement("div");
+
+// Créer un paragraphe p à l'intérieur de cette div
+let monParagraphe = document.createElement("p");
+
+// Ajoutez du texte initial : "Ceci est un paragraphe"
+monParagraphe.textContent = "Ceci est un paragraphe";
+
+// Ajouter le paragraphe à la div, puis la div au body
+maDiv.appendChild(monParagraphe);
+document.body.appendChild(maDiv);
+
+// 2. Modification le texte
+// Modifiez son texte pour dire : "Le texte a été modifié"
+monParagraphe.textContent = "Le texte a été modifié";
+
+// 3. Modification du style CSS
+// Changez la couleur de fond en "lightblue" et centrez le texte
+monParagraphe.style.backgroundColor = "lightblue";
+monParagraphe.style.textAlign = "center";
+monParagraphe.style.padding = "10px";
+monParagraphe.style.borderRadius= "10px";
+
+
+// 4. Ajout d'un événement
+// Ajoutez un événement "click" à la div
+maDiv.addEventListener("click", function() {
+    // Changer le texte pour : "Un clic a été détecté"
+    monParagraphe.textContent = "Un clic a été détecté";
+});
